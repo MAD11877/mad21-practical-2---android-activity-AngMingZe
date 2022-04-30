@@ -15,13 +15,23 @@ public class MainActivity extends AppCompatActivity {
         int id;
         boolean followed;
         //Constructor
-        public User(){};
+        public User(String n,String des,int ID,boolean Followed){
+            name = n;
+            description = des;
+            id = ID;
+            followed = Followed;
+        };
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        User u1 = new User("Name","Description",01,false);
+        if (u1.followed == true){
+            Button b1 = findViewById(R.id.follow);
+            b1.setText("Unfollow");
+        }
     }
 
     public void anyName(View v){
@@ -31,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (text == "Follow"){
             b1.setText("Unfollow");
         }
-        else if (text == "Unfollow"){
+        else{
             b1.setText("Follow");
         }
     }
